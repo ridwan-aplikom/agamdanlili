@@ -1,16 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // --- BAGIAN PERBAIKAN: PENANGKAPAN NAMA TAMU ---
+  const guestNameElement = document.getElementById('guestName');
+  
+  // Fungsi untuk mengambil parameter dari URL
+  function getGuestName() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestName = urlParams.get('to'); // Mengambil nilai dari ?to=...
+
+    if (guestName) {
+      // Decode dan bersihkan nama tamu, lalu tampilkan
+      guestNameElement.innerText = decodeURIComponent(guestName);
+    } else {
+      // Jika tidak ada parameter, biarkan default
+      guestNameElement.innerText = "Tamu Undangan";
+    }
+  }
+
+  // Jalankan fungsi penangkap nama
+  getGuestName();
+
+  // --- LOGIKA INTRO & AUDIO ---
   const intro = document.getElementById('intro');
   const openBtn = document.getElementById('openInvite');
   const audio = document.getElementById('bgMusic');
   const musicToggle = document.getElementById('musicToggle');
   const musicIcon = document.getElementById('musicIcon');
   let isPlaying = false;
-
-  const params = new URLSearchParams(window.location.search);
-  const to = params.get('to');
-  if (to) {
-    document.getElementById('guestName').innerText = decodeURIComponent(to);
-  }
 
   openBtn.addEventListener('click', () => {
     intro.classList.add('hide');
@@ -33,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   musicToggle.addEventListener('click', toggleMusic);
 
+  // --- LOGIKA COUNTDOWN ---
   const eventDate = new Date("Jan 10, 2026 09:00:00").getTime();
-
   function updateCountdown() {
     const now = new Date().getTime();
     const diff = eventDate - now;
@@ -46,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   setInterval(updateCountdown, 1000);
 
+  // --- REVEAL ON SCROLL ---
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -55,17 +71,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+  // --- LOGIKA COPY REKENING ---
   document.querySelectorAll('.copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const text = btn.getAttribute('data-copy');
       navigator.clipboard.writeText(text).then(() => {
         const originalText = btn.innerText;
-        btn.innerText = 'Berhasil disalin!';
+        btn.innerText = 'Tersalin!';
         setTimeout(() => btn.innerText = originalText, 2000);
       });
     });
   });
 
+  // --- LOGIKA BUKU TAMU (JSON) ---
   const rsvpForm = document.getElementById('rsvpForm');
   const wishList = document.getElementById('wishList');
   let dummyData = JSON.parse(localStorage.getItem('wedding_wishes')) || [
@@ -82,36 +100,21 @@ document.addEventListener('DOMContentLoaded', () => {
     `).reverse().join('');
   }
 
-  rsvpForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const newWish = {
-      name: document.getElementById('formName').value,
-      status: document.getElementById('formStatus').value,
-      message: document.getElementById('formMessage').value
-    };
-    dummyData.push(newWish);
-    localStorage.setItem('wedding_wishes', JSON.stringify(dummyData));
-    rsvpForm.reset();
-    renderWishes();
-    wishList.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if(rsvpForm) {
+    rsvpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const newWish = {
+        name: document.getElementById('formName').value,
+        status: document.getElementById('formStatus').value,
+        message: document.getElementById('formMessage').value
+      };
+      dummyData.push(newWish);
+      localStorage.setItem('wedding_wishes', JSON.stringify(dummyData));
+      rsvpForm.reset();
+      renderWishes();
+      wishList.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   renderWishes();
-
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.nav-icon');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      if (window.pageYOffset >= section.offsetTop - 150) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').includes(current)) {
-        link.classList.add('active');
-      }
-    });
-  });
 });
