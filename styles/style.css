@@ -460,3 +460,47 @@ body {
   .couple-divider { display: none; }
   .intro-title { font-size: 3rem; }
 }
+
+/* Pastikan overlay membungkus layar penuh dan konten di tengah */
+.intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fdfbf9; /* Sesuaikan dengan warna tema Anda */
+  z-index: 9999;
+  display: flex;
+  align-items: center;    /* Center secara vertikal */
+  justify-content: center; /* Center secara horizontal */
+  transition: transform 0.8s ease-in-out, opacity 0.8s;
+}
+
+.intro-content {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.intro-frame {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Memberi jarak lebih pada tombol ke elemen di atasnya */
+#openInvite {
+  margin-top: 50px; /* Jarak tombol dari tulisan nama */
+  padding: 12px 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Tambahan agar saat di-hide transisinya mulus */
+.intro-overlay.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
