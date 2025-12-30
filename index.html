@@ -11,6 +11,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="styles/style.css" />
+  <style>
+    .invite-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+      list-style: none;
+      padding: 0;
+    }
+    .invite-item {
+      font-size: 1rem;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      color: #555;
+    }
+    @media (max-width: 768px) {
+      .invite-list { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -43,6 +62,7 @@
       <a href="#event" class="nav-icon"><i class="bi bi-calendar-event"></i></a>
       <a href="#gallery" class="nav-icon"><i class="bi bi-images"></i></a>
       <a href="#gift" class="nav-icon"><i class="bi bi-gift"></i></a>
+      <a href="#honored" class="nav-icon"><i class="bi bi-person-check"></i></a>
       <a href="#rsvp" class="nav-icon"><i class="bi bi-chat-dots"></i></a>
     </div>
   </header>
@@ -53,9 +73,9 @@
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content container">
-      <p class="hero-sub fade-in">UNDANGAN BESAN</p>
+      <p class="hero-sub fade-in">Walimatul 'Ursy</p>
       <h1 class="hero-names fade-in">Agam & Lili</h1>
-      <p class="hero-date fade-in">Sabtu, 03 Januari 2026</p>
+      <p class="hero-date fade-in">Sabtu, 10 Januari 2026</p>
       <div id="countdown" class="countdown fade-in">
         <div class="cd-item"><span id="cdDays">00</span><small>Hari</small></div>
         <div class="cd-item"><span id="cdHours">00</span><small>Jam</small></div>
@@ -93,22 +113,22 @@
       <div class="event-grid">
         <div class="event-card reveal">
           <i class="bi bi-heart-fill ev-icon"></i>
-          <h3>Acara Syukuran</h3>
-          <p class="ev-date">Sabtu, 03 Januari 2026</p>
-          <p class="ev-time">10.00 WIB - Selesai</p>
-          <p class="ev-place">Jl. H. Saikin, Gg Sulaiman RT. 13 RW 08, No. 15 Pondok Pinang Kec. Kebayoran Lama Jakarta Selatan</p>
+          <h3>Akad Nikah</h3>
+          <p class="ev-date">Sabtu, 10 Januari 2026</p>
+          <p class="ev-time">09.00 WIB - Selesai</p>
+          <p class="ev-place">Karang Sari, RT 03 RW 01, Kembaran, Banyumas</p>
         </div>
         <div class="event-card reveal">
           <i class="bi bi-stars ev-icon"></i>
-          <h3>Akad & Resepsi</h3>
+          <h3>Resepsi</h3>
           <p class="ev-date">Sabtu, 10 Januari 2026</p>
           <p class="ev-time">11.00 WIB - Selesai</p>
           <p class="ev-place">Karang Sari, RT 03 RW 01, Kembaran, Banyumas</p>
         </div>
       </div>
       <div class="map-box reveal mx-auto mt-5">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.844670741828!2d106.76446907629678!3d-6.284139961513672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f034662d1463%3A0x2415c889774f3408!2sGg.%20H.%20Sulaiman%2C%20RW.8%2C%20Pd.%20Pinang%2C%20Kec.%20Kebayoran%20Lama%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012310!5e0!3m2!1sid!2sid!4v1767085487263!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        <a href="https://maps.app.goo.gl/Pu8UCih2VF8Y3sCi6" target="_blank" class="btn btn-primary mt-4">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15824.225577636746!2d109.2818742!3d-7.4590396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655c654f056157%3A0xc682245e3966023d!2sKarangsari%2C%20Kembaran%2C%20Banyumas%20Regency%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <a href="https://maps.app.goo.gl/9vJqD" target="_blank" class="btn btn-primary mt-4">
             <i class="bi bi-geo-alt"></i> Petunjuk Jalan (Google Maps)
         </a>
       </div>
@@ -143,7 +163,32 @@
     </div>
   </section>
 
-  <section id="rsvp" class="section">
+  <section id="honored" class="section">
+    <div class="container text-center">
+      <h2 class="section-title">Turut Mengundang</h2>
+      <div class="max-width-md mx-auto">
+        <ul class="invite-list reveal">
+          <li class="invite-item">1. Ibu Tihama</li>
+          <li class="invite-item">2. Bapak Moch. Ali</li>
+          <li class="invite-item">3. Bapak Agus Ramli</li>
+          <li class="invite-item">4. Bapak Muradi</li>
+          <li class="invite-item">5. Bapak Ust. Anwar Ahmad</li>
+          <li class="invite-item">6. Bapak Samsul Bahri (Ketua RT. 013)</li>
+          <li class="invite-item">7. Ibu Rohaya</li>
+          <li class="invite-item">8. KH. H. Muhamad Dahlan</li>
+          <li class="invite-item">9. Bapak Ust. Muhdi Yasin</li>
+          <li class="invite-item">10. Bapak Amir Abadi</li>
+          <li class="invite-item">11. lbu Ely Aprilia</li>
+          <li class="invite-item">12. Ibu Asmanih</li>
+          <li class="invite-item">13. Kel. Besar Bani H. Jainusi bin H. Jimin</li>
+          <li class="invite-item">14. Marga Reebon MAN4</li>
+          <li class="invite-item">15. Bapak Fachtur Rochman (ipar)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp" class="section bg-soft">
     <div class="container text-center max-width-md mx-auto">
       <h2 class="section-title">Buku Tamu</h2>
       <form id="rsvpForm" class="rsvp-box reveal text-left">
