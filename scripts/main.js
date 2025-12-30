@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const eventDate = new Date("Jan 10, 2026 09:00:00").getTime();
+  const eventDate = new Date("Jan 03, 2026 10:00:00").getTime();
   setInterval(() => {
     const now = new Date().getTime();
     const diff = eventDate - now;
