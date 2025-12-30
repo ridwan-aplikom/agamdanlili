@@ -3,11 +3,10 @@
 Struktur mirip undangan modern: overlay pembuka, musik, hero, countdown, detail acara, peta, galeri, amplop digital, RSVP, dan animasi halus.
 
 ## Cara pakai
-1. Ganti teks [Nama Wanita], [Nama Pria], tanggal, alamat, dan rekening di `index.html`.
-2. Letakkan foto di `assets/images/`:
-   - `hero.jpg`, `wanita.jpg`, `pria.jpg`, `gallery1.jpg`–`gallery6.jpg`.
-3. Letakkan musik latar di `assets/audio/bg-music.mp3`.
-4. Edit `scripts/main.js` untuk tanggal acara (`eventDate`).
+1. Ganti teks [Nama Wanita], [Nama Pria], tanggal, alamat, dan rekening.
+2. Letakkan foto di:
+3. Letakkan musik latar di.
+4. Edit untuk tanggal acara.
 5. Deploy:
    - GitHub Pages: aktifkan Pages dari branch utama.
    - Vercel: klik “New Project”, pilih repo ini, deploy.
