@@ -3,246 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Link Generator | Pernikahan Agam & Lili</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Generator Link | Agam & Lili</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <style>
-    :root {
-      --primary: #8d6e63;
-      --primary-dark: #6d4c41;
-      --bg: #fdfbf9;
-      --white: #ffffff;
-      --font-heading: 'Cormorant Garamond', serif;
-      --font-body: 'Montserrat', sans-serif;
-    }
-
-    body {
-      font-family: var(--font-body);
-      background-color: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .card {
-      background: var(--white);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(141, 110, 99, 0.1);
-      width: 100%;
-      max-width: 450px;
-      text-align: center;
-      border: 1px solid rgba(141, 110, 99, 0.1);
-    }
-
-    h2 {
-      font-family: var(--font-heading);
-      color: var(--primary);
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-    }
-
-    p.subtitle {
-      font-size: 0.85rem;
-      color: #777;
-      margin-bottom: 30px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .form-group {
-      text-align: left;
-      margin-bottom: 20px;
-    }
-
-    label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--primary-dark);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      border: 1.5px solid #eee;
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      transition: 0.3s;
-      box-sizing: border-box;
-    }
-
-    input:focus {
-      outline: none;
-      border-color: var(--primary);
-      background-color: #fffaf9;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .btn-generate {
-      background: var(--primary);
-      color: white;
-      margin-bottom: 15px;
-    }
-
-    .btn-generate:hover {
-      background: var(--primary-dark);
-    }
-
-    .result-area {
-      display: none;
-      margin-top: 30px;
-      padding-top: 25px;
-      border-top: 1px dashed #ddd;
-      animation: fadeIn 0.5s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    #previewBox {
-      background: #f9f6f4;
-      padding: 15px;
-      font-size: 0.75rem;
-      text-align: left;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      color: #555;
-      border: 1px solid #eee;
-      white-space: pre-line; /* Agar baris baru terlihat di preview */
-      max-height: 150px;
-      overflow-y: auto;
-    }
-
-    .action-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .btn-copy {
-      background: #f1f1f1;
-      color: #333;
-    }
-
-    .btn-wa {
-      background: #25d366;
-      color: white;
-    }
-
-    .btn-wa:hover {
-      background: #1eb954;
-    }
-
-    footer {
-      margin-top: 25px;
-      font-size: 0.7rem;
-      color: #bbb;
-    }
+    body { font-family: 'Montserrat', sans-serif; background: #fdfbf9; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
+    .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%; max-width: 450px; text-align: center; }
+    h2 { font-family: 'Cormorant Garamond'; color: #8d6e63; font-size: 2rem; margin-bottom: 25px; }
+    input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+    button { width: 100%; padding: 14px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .btn-main { background: #8d6e63; color: white; }
+    .result-area { display: none; margin-top: 20px; text-align: left; border-top: 1px dashed #ddd; padding-top: 20px; }
+    #preview { background: #f9f9f9; padding: 15px; font-size: 0.8rem; border-radius: 8px; white-space: pre-wrap; margin-bottom: 15px; border: 1px solid #eee; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .btn-wa { background: #25d366; color: white; }
+    .btn-copy { background: #e0e0e0; color: #333; }
   </style>
 </head>
 <body>
-
   <div class="card">
-    <h2>Link Generator</h2>
-    <p class="subtitle">Undangan Agam & Lili</p>
-    
-    <div class="form-group">
-      <label>Nama Tamu Undangan</label>
-      <input type="text" id="nameInput" placeholder="Contoh: Bapak Budi Setiawan" autocomplete="off">
-    </div>
-    
-    <button class="btn-generate" onclick="generateInvite()">
-      <i class="bi bi-magic"></i> Buat Pesan Undangan
-    </button>
+    <h2>Generator Undangan</h2>
+    <input type="text" id="nameInput" placeholder="Nama Tamu (Contoh: Bapak Budi)">
+    <button class="btn-main" onclick="generate()">Buat Undangan Formal</button>
     
     <div id="result" class="result-area">
-      <label>Preview Pesan:</label>
-      <div id="previewBox"></div>
-      
-      <div class="action-buttons">
-        <button class="btn-copy" onclick="copyFullMessage()">
-          <i class="bi bi-clipboard"></i> Salin Pesan
-        </button>
-        <button class="btn-wa" onclick="shareWA()">
-          <i class="bi bi-whatsapp"></i> WhatsApp
-        </button>
+      <div id="preview"></div>
+      <div class="grid">
+        <button class="btn-copy" onclick="copyText()">Salin Pesan</button>
+        <button class="btn-wa" onclick="sendWA()">WhatsApp</button>
       </div>
     </div>
-
-    <footer>&copy; 2025 kirimsalamID</footer>
   </div>
 
   <script>
-    let fullMessage = "";
-
-    function generateInvite() {
+    let msg = "";
+    function generate() {
       const name = document.getElementById('nameInput').value;
-      if(!name) {
-        alert("Mohon masukkan nama tamu terlebih dahulu.");
-        return;
-      }
+      if(!name) return alert("Masukkan nama tamu!");
       
-      const baseUrl = window.location.origin + window.location.pathname.replace('generator.html', 'index.html');
-      const link = `${baseUrl}?to=${encodeURIComponent(name)}`;
+      const loc = window.location.href;
+      const folder = loc.substring(0, loc.lastIndexOf("/"));
+      const link = `${folder}/index.html?to=${encodeURIComponent(name)}`;
       
-      // Template Pesan Formal
-      fullMessage = `Assalamu'alaikum Warahmatullahi Wabarakatuh.
-
-Tanpa mengurangi rasa hormat, izinkan kami mengundang Bapak/Ibu/Saudara/i *${name}* untuk hadir di acara pernikahan kami.
-
-Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.
-
-Informasi lengkap mengenai acara dapat diakses melalui tautan undangan digital berikut:
-${link}
-
-Terima kasih atas perhatian dan doa restunya.
-Wassalamu'alaikum Warahmatullahi Wabarakatuh.
-
-Kami yang berbahagia,
-*Agam & Lili*`;
-
-      document.getElementById('previewBox').innerText = fullMessage;
+      msg = `Assalamu'alaikum Warahmatullahi Wabarakatuh.\n\nTanpa mengurangi rasa hormat, izinkan kami mengundang Bapak/Ibu/Saudara/i *${name}* untuk hadir di pernikahan kami.\n\nDetail undangan:\n${link}\n\nTerima kasih.\n\n*Agam & Lili*`;
+      
+      document.getElementById('preview').innerText = msg;
       document.getElementById('result').style.display = 'block';
     }
 
-    function copyFullMessage() {
-      if(!fullMessage) return;
-      
-      navigator.clipboard.writeText(fullMessage).then(() => {
-        const btn = document.querySelector('.btn-copy');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="bi bi-check2-all"></i> Pesan Tersalin';
-        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
-      });
+    function copyText() {
+      navigator.clipboard.writeText(msg);
+      alert("Pesan formal berhasil disalin!");
     }
 
-    function shareWA() {
-      if(!fullMessage) return;
-      window.open(`https://wa.me/?text=${encodeURIComponent(fullMessage)}`, '_blank');
+    function sendWA() {
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
     }
   </script>
 </body>
