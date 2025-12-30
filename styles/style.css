@@ -504,3 +504,38 @@ body {
   opacity: 0;
   pointer-events: none;
 }
+
+/* Style Turut Mengundang Center & Tanpa Titik/Angka */
+.honored-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px auto 0;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Membuat daftar berada di tengah secara horizontal */
+  gap: 10px 20px;         /* Jarak antar nama (atas-bawah, kiri-kanan) */
+}
+
+.honored-list li {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  flex: 0 1 auto;         /* Membuat lebar tiap nama fleksibel sesuai panjang teks */
+  padding: 5px 10px;
+  line-height: 1.4;
+  /* Opsional: tambahkan font-style: italic; jika ingin terlihat lebih manis */
+}
+
+/* Responsif untuk HP agar tidak terlalu rapat */
+@media (max-width: 576px) {
+  .honored-list {
+    flex-direction: column; /* Nama berjejer ke bawah di HP */
+    align-items: center;
+  }
+  .honored-list li {
+    border-bottom: 1px solid #eee; /* Garis tipis pemisah di HP agar rapi */
+    width: 80%;
+    padding: 10px 0;
+  }
+}
